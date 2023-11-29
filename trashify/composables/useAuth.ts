@@ -8,14 +8,10 @@ export const useAuth = () => {
   };
 
   const signup = async (email: string, password: string) => {
-    const data = await $fetch("/auth/signup", {
+    await $fetch("/auth/signup", {
       method: "POST",
       body: { email, password },
     });
-
-    if (data) setUser(data);
-
-    return authUser;
   };
 
   const login = async (
