@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   runtimeConfig: {
+    baseApiURL: process.env.BASE_API_URL || "http://localhost:5000",
     cookieName: process.env.COOKIE_NAME || "__session",
     cookieSecret: process.env.COOKIE_SECRET || "secret",
     cookieExpires: parseInt(

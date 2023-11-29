@@ -16,9 +16,11 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  const config = useRuntimeConfig()
+
   const data = await axios
     .post(
-      "http://localhost:5000/login",
+      `${config.baseApiURL}/login`,
       {
         email: email,
         password: password,
@@ -58,8 +60,6 @@ export default defineEventHandler(async (event) => {
         message: error.response.data.detail,
       });
     });
-
-  const config = useRuntimeConfig()
 
   const session = serialize({ userId: data.id });
   const signedSession = sign(session, config.cookieSecret);

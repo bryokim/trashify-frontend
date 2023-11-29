@@ -14,9 +14,11 @@ export default defineEventHandler(async (event) => {
     });
   }
 
+  const config = useRuntimeConfig();
+
   const data = await axios
     .post(
-      "http://localhost:5000/signup",
+      `${config.baseApiURL}/signup`,
       {
         email: email,
         password: password,
