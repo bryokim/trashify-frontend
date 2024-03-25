@@ -45,4 +45,5 @@ export default defineNuxtConfig({
       },
     },
   },
+  plugins: ["~/plugins/new.js"],
 });
